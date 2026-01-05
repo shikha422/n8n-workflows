@@ -1,0 +1,65 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 2
+            },
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cb5e9f8f-b9e5-4a5b-90b7-af44fce9245c",
+      "name": "Schedule Trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n// This code runs every time the scheduler triggers\nconsole.log(\"Hello World!\");\n\n// If you want to output something to the next node:\nreturn [\n  {\n    json: {\n      message: \"Hello World!\"\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "436146ea-822d-44f1-9907-fc17c1c13d5f",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "de401069-6f29-4ed0-8ceb-fe73aa2047ff",
+  "meta": {
+    "instanceId": "3a2b03d2aa00727d48b0748ffba37f17648dbf7658d27a466ba415fd56da7ba4"
+  },
+  "id": "LDgnnOLwK6G0mJvE",
+  "tags": []
+}
